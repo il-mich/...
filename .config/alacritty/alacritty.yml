@@ -1,0 +1,92 @@
+## le-mich Neovim config for alacritty
+#
+#
+#                `........`
+#            .--::--------::.
+#         .-:----------------:`
+#       .:--------------------/
+#      ::---------------------:-                        ``....`
+#     :-----------------------:.                  .--:::-----:.
+#    `/------------:::--------:                  ::-------:-+.
+#    `:----------::...-::---::                `.:-------/h+.
+#     /-------:::/-..-..::--:  ``          `.-:--:::-:+/.
+#     .:-----/-...:./h/..::-/::::/.     `.-:-::-.`
+#      `::---/-.+:.:::ys.-::/::---::---/:::-.`
+#        `....--+ho/:::/:/::----:/:--::/.`
+#              `-:+o---//-:/-sy+yho+/.
+#              .:--+-::--//oso++++o/`
+#              :-///:--:/---os+o/.
+#              -://---/:----++++o:
+#               -:---++/:::+o++++o/
+#               +://oo+:-  ++++++++/
+#               `--..      :+++++++o.
+#                          +++++++++/
+#                         -o+oooooo+o
+#                         ++/:----://
+#                        `/--------:`
+#                       `+-//:::-:::
+#                       .``.`.`.`.``
+#
+
+
+window:
+  # Blank space added around the window in pixels
+  padding:
+    x: 3
+    y: 2
+
+  # Spread padding evenly around the terminal
+  dynamic_padding: true
+
+  # Gtk window decorations
+  decorations: none
+
+  # EWMH window title
+  title: Alacritty
+
+  # Allow applications to change title
+  dynamic_title: true
+
+  # Windows class
+  class:
+    # Applications instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
+
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer
+  history: 20000
+
+font:
+  normal:
+    family: mononoki
+    style: Regular
+
+  bold:
+    family: mononoki
+    style: Bold
+
+  italic:
+    family: mononoki
+    style: Italic
+
+  bold_italic:
+    family: mononoki
+    style: Bold italic
+
+  size: 10.0
+
+live_config_reload: true
+
+shell:
+  program: /bin/zsh
+
+mouse:
+  hide_when_typing: true
+
+# Import color settings from flavours file
+import:
+  - ~/.config/alacritty/theme.yml
+

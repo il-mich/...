@@ -1,0 +1,20 @@
+#! /bin/bash
+
+path="/tmp/gui-nvim"
+socket="0"
+
+if [[ ! -S "$path/$socket" ]]
+then
+	mkdir -p "$path"
+	env NVIM_LISTEN_ADDRESS="$path/$socket" $NVGUI &> /dev/null
+
+	while [[ ! -S "$path/$socket" ]]
+	do
+		:
+	done
+
+	nvr --servername "$path/$socket" --remote "$@" & disown
+else
+	nvr --servername "$path/$socket" --remote-tab "$@" & disown
+fi
+
