@@ -86,7 +86,3 @@ shell:
 mouse:
   hide_when_typing: true
 
-# Import color settings from flavours file
-import:
-  - ~/.config/alacritty/theme.yml
-
