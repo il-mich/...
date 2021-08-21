@@ -61,19 +61,19 @@ scrolling:
 
 font:
   normal:
-    family: mononoki
+    family: terminal-mono
     style: Regular
 
   bold:
-    family: mononoki
+    family: terminal-mono
     style: Bold
 
   italic:
-    family: mononoki
+    family: terminal-mono
     style: Italic
 
   bold_italic:
-    family: mononoki
+    family: terminal-mono
     style: Bold italic
 
   size: 10.0
@@ -85,4 +85,10 @@ shell:
 
 mouse:
   hide_when_typing: true
+
+
+colors:
+  primary:
+    background: '0x000000'
+    foreground: '0xFFFFFF'
 
