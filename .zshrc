@@ -173,6 +173,18 @@ RPROMPT='%(?.◕‿◕.%F{red}ಠ_ಠ)%f' # expanded dynamically
 ## Plugins
 #
 
+# xdg-open with disown
+open () {
+    for i; do
+        if [[ ! -r $i ]]; then
+            echo "$0: file doesn't exist: \`$i'" >&2
+            continue
+        fi
+        xdg-open "$i" >/dev/null 2>&1 &
+        disown
+    done
+}
+
 if [[ ! -f ~/.config/zpm/zpm.zsh ]]
 then
 	git clone --recursive https://github.com/zpm-zsh/zpm ~/.config/zpm
