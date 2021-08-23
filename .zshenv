@@ -11,8 +11,11 @@ export XDG_DATA_HOME=$HOME/.local/share
 ## Style variables
 #
 
-export QT_QPA_PLATFORMTHEME=gtk3
-export TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY=1
+if [[ $XDG_CURRENT_DESKTOP != KDE ]]
+then
+	export QT_QPA_PLATFORMTHEME=gtk3
+	export TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY=1
+fi
 
 
 #
@@ -34,8 +37,8 @@ SAVEHIST=2000
 
 # Set editors
 export EDITOR=nvim
-export VISUAL=gnvim
-export NVGUI=nvim-gtk
+export VISUAL=nvim-gui
+export NVGUI=neovide
 
 # Set JAVA_HOME
 export JAVA_HOME=/usr/lib/jvm/default
