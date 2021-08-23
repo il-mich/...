@@ -1,6 +1,6 @@
 #! /bin/bash
 
-path="/tmp/gui-nvim"
+path="/tmp/nvim-gui"
 socket="0"
 
 if [[ ! -S "$path/$socket" ]]
