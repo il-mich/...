@@ -25,6 +25,12 @@ do
 	ln $orig $dest
 done
 
+if (command -v pip3 &> /dev/null && ! command -v nvr &> /dev/null)
+then
+	echo "Installing neovim-remote from pip3"
+	pip3 install neovim-remote
+fi
+
 if [[ ! -d "$HOME/.config/nvim" ]]
 then
 	git submodule update
