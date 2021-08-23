@@ -27,6 +27,7 @@ done
 
 if [[ ! -d "$HOME/.config/nvim" ]]
 then
+	git submodule update
 	ln -s "$(pwd)/.config/nvim" "$HOME/.config/nvim"
 fi
 
