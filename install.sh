@@ -22,7 +22,7 @@ do
 		mkdir -p $(dirname "$dest")
 	fi
 
-	ln $orig $dest
+	ln -f $orig $dest
 done
 
 if (command -v pip3 &> /dev/null && ! command -v nvr &> /dev/null)
