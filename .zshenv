@@ -38,7 +38,6 @@ SAVEHIST=2000
 # Set editors
 export EDITOR=nvim
 export VISUAL=nvim-gui
-export NVGUI=neovide
 
 # Set JAVA_HOME
 export JAVA_HOME=/usr/lib/jvm/default
