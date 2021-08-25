@@ -1,18 +1,5 @@
 #! /bin/bash
 
-get-gui () {
-	programs=("neovide" "gnvim" "goneovim" "kitty nvim" "alacritty -e nvim")
-
-	for candidate in "${programs[@]}"
-	do
-		if (command -v "$(echo $candidate | cut -d" " -f1)" &> /dev/null)
-		then
-			export NVGUI="$candidate"
-			break
-		fi
-	done
-}
-
 path="/tmp/nvim-gui"
 socket="0"
 
@@ -21,11 +8,6 @@ then
 	nvr --servername "$path/$socket" --remote-tab "$@" & disown
 else
 	mkdir -p "$path"
-
-	if [[ -z ${NVGUI+x} ]]
-	then
-		get-gui
-	fi
 
 	env NVIM_LISTEN_ADDRESS="$path/$socket" $NVGUI &> /dev/null & disown
 

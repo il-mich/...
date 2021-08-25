@@ -37,7 +37,19 @@ SAVEHIST=2000
 
 # Set editors
 export EDITOR=nvim
-export VISUAL=nvim-gui
+
+# Find gui
+programs=("neovide" "gnvim" "goneovim" "kitty nvim" "alacritty -e nvim")
+
+for candidate in "${programs[@]}"
+do
+	if (command -v "$(echo $candidate | cut -d" " -f1)" &> /dev/null)
+	then
+		export VISUAL=nvim-gui
+		export NVGUI="$candidate"
+		break
+	fi
+done
 
 # Set JAVA_HOME
 export JAVA_HOME=/usr/lib/jvm/default
