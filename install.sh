@@ -11,7 +11,7 @@ do
 	orig=${file/./"$(pwd)"}
 	dest=${file/./$HOME}
 
-	if [[ -f "$dest" && "$(stat -c %h -- "$dest")" -lt 2 ]]
+	if [[ -f "$dest"]]
 	then
 		echo "Moving old ${file/.\//} to ${file/.\//}.bak"
 		mv -f "$dest" "$dest.bak"
@@ -22,7 +22,7 @@ do
 		mkdir -p $(dirname "$dest")
 	fi
 
-	ln -f $orig $dest
+	ln -s $orig $dest
 done
 
 if (command -v pip3 &> /dev/null && ! command -v nvr &> /dev/null)
@@ -31,9 +31,19 @@ then
 	pip3 install neovim-remote
 fi
 
-if [[ ! -d "$HOME/.config/nvim" ]]
+dir="$HOME/.config/nvim"
+
+if [[ -d $dir ]]
 then
-	git submodule update
-	ln -s "$(pwd)/.config/nvim" "$HOME/.config/nvim"
+	if [[ "$(ls -A $dir)" ]]
+	then
+		echo "Moving old $dir to $dir.bak"
+		mv -f "$dir" "$dir.bak"
+	else
+		echo "Removing empty $dir"
+		rmdir "$dir"
+	fi
 fi
+
+git clone https://github.com/il-mich/nvim $dir
 
