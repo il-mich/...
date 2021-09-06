@@ -11,7 +11,7 @@ do
 	orig=${file/./"$(pwd)"}
 	dest=${file/./$HOME}
 
-	if [[ -f "$dest"]]
+	if [[ -f "$dest" && ! -h "$dest" ]]
 	then
 		echo "Moving old ${file/.\//} to ${file/.\//}.bak"
 		mv -f "$dest" "$dest.bak"
@@ -22,7 +22,10 @@ do
 		mkdir -p $(dirname "$dest")
 	fi
 
-	ln -s $orig $dest
+	if [[ ! -e "$dest" ]]
+	then
+		ln -s $orig $dest
+	fi
 done
 
 if (command -v pip3 &> /dev/null && ! command -v nvr &> /dev/null)
@@ -33,7 +36,7 @@ fi
 
 dir="$HOME/.config/nvim"
 
-if [[ -d $dir ]]
+if [[ -d $dir && ! -d $dir/.git ]]
 then
 	if [[ "$(ls -A $dir)" ]]
 	then
@@ -45,5 +48,8 @@ then
 	fi
 fi
 
-git clone https://github.com/il-mich/nvim $dir
+if [[ ! -d $dir ]]
+then
+	git clone https://github.com/il-mich/nvim $dir
+fi
 
