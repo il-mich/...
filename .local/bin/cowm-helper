@@ -1,0 +1,31 @@
+#! /bin/sh
+
+# italian keymap
+setxkbmap it -option ctrl:nocaps
+
+# setting the touchpad options
+
+xinput set-prop ELAN1200:00\ 04F3:303E\ Touchpad "libinput Tapping Enabled" 1
+xinput set-prop ELAN1200:00\ 04F3:303E\ Touchpad "libinput Tapping Drag Enabled" 0
+xinput set-prop ELAN1200:00\ 04F3:303E\ Touchpad "libinput Natural Scrolling Enabled" 1
+
+# remove cursor after a while
+unclutter &
+
+# status bar
+slstatus 2> /dev/null &
+
+# screen layout
+sh /home/mich/.screenlayout/home.sh
+
+# restore wallpaper
+/home/mich/.fehbg &
+
+# compositor
+picom &
+
+# merge local Xresources to global ones
+xrdb -merge ~/.Xresources
+
+# start wm
+exec cowm.bak &> /home/mich/cowm.log
