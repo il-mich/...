@@ -14,6 +14,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 if [[ $XDG_CURRENT_DESKTOP != KDE ]]
 then
 	export QT_QPA_PLATFORMTHEME=gtk3
+	export WINIT_UNIX_BACKEND=x11
 	export TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY=1
 fi
 
@@ -51,15 +52,6 @@ do
 	fi
 done
 
-# Set JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/default
-
-# Neverlang env
-export NEVERLANG_HOME=$HOME/.local/lib/neverlang2-1.2
-
 # Add stuff to PATH
-export PATH=$NEVERLANG_HOME/bin:$JAVA_HOME/bin:$HOME/.local/bin:$PATH
-
-# Select cargo install folder
-export CARGO_INSTALL_ROOT=/usr/bin
+export PATH=$HOME/.local/bin:$PATH
 
