@@ -4,16 +4,20 @@
 
 # Set editors
 export EDITOR=nvim
-export VISUAL=gedit
 
-# Set JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/default
+# Find gui
+programs=("neovide" "gnvim" "goneovim" "kitty nvim" "alacritty -e nvim")
 
-# Neverlang env
-export NEVERLANG_HOME=$HOME/.local/lib/neverlang2-1.2
+for candidate in "${programs[@]}"
+do
+	if (command -v "$(echo $candidate | cut -d" " -f1)" &> /dev/null)
+	then
+		export VISUAL=nvim-gui
+		export NVGUI="$candidate"
+		break
+	fi
+done
 
 # Add stuff to PATH
-export PATH=$NEVERLANG_HOME/bin:$JAVA_HOME/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
-# Select cargo install folder
-export CARGO_INSTALL_ROOT=/usr/bin
