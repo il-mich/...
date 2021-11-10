@@ -59,8 +59,6 @@ setopt NO_EXTENDED_GLOB
 # Don't report the status of background jobs immediately
 setopt NO_NOTIFY
 
-# Opam configuration
-test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 #
 ## Visited folders stack
@@ -81,7 +79,7 @@ setopt PUSHD_SILENT
 #
 
 # Git add, commit and push
-bash function acp() {
+acp() {
 	git add .
 	git commit -m "$1"
 	git push
@@ -93,7 +91,7 @@ bash function acp() {
 #
 
 # Edit zshrc
-alias zshed='gnvim ~/.zshrc && zpm upgrade'
+alias zshed='nvim-gui ~/.zshrc && zpm upgrade'
 
 # Audio
 alias pm='pulsemixer'
@@ -124,6 +122,8 @@ alias egrep='egrep --color=auto'
 # Colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# Fast af venv
+alias vnv='source .venv/bin/activate'
 
 #
 ## Keymaps
@@ -174,7 +174,7 @@ RPROMPT='%(?.◕‿◕.%F{red}ಠ_ಠ)%f' # expanded dynamically
 #
 
 # xdg-open with disown
-open () {
+open() {
     for i; do
         if [[ ! -r $i ]]; then
             echo "$0: file doesn't exist: \`$i'" >&2
