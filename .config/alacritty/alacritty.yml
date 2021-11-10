@@ -32,14 +32,11 @@
 window:
   # Blank space added around the window in pixels
   padding:
-    x: 3
-    y: 2
+    x: 5
+    y: 5
 
   # Spread padding evenly around the terminal
   dynamic_padding: true
-
-  # Gtk window decorations
-  decorations: none
 
   # EWMH window title
   title: Alacritty
@@ -61,20 +58,8 @@ scrolling:
 
 font:
   normal:
-    family: terminal-mono
+    family: JetBrainsMono Nerd Font
     style: Regular
-
-  bold:
-    family: terminal-mono
-    style: Bold
-
-  italic:
-    family: terminal-mono
-    style: Italic
-
-  bold_italic:
-    family: terminal-mono
-    style: Bold italic
 
   size: 10.0
 
@@ -92,3 +77,61 @@ colors:
     background: '0x000000'
     foreground: '0xFFFFFF'
 
+schemes:
+  night-owl: &night-owl
+    primary:
+      background: "#011627"
+      foreground: "#d6deeb"
+
+    # Cursor colors
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+
+    # Vi mode cursor colors
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: "#22da6e"
+
+    # Selection colors
+    selection:
+      text: "#ffffff"
+      background: "#0d486e"
+
+    # Search colors
+    search:
+      matches:
+        foreground: "#000000"
+        background: "#22da6e"
+
+        focused_match:
+          foreground: "#ffffff"
+          background: "#22da6e"
+
+      bar:
+        foreground: "#ffffff"
+        background: "#1d3b53"
+
+    # Normal colors
+    normal:
+      black: "#011627"
+      red: "#EF5350"
+      green: "#22da6e"
+      yellow: "#c5e478"
+      blue: "#82AAFF"
+      magenta: "#C792EA"
+      cyan: "#21c7a8"
+      white: "#ffffff"
+
+    # Bright colors
+    bright:
+      black: "#575656"
+      red: "#EF5350"
+      green: "#22da6e"
+      yellow: "#ffeb95"
+      blue: "#82AAFF"
+      magenta: "#C792EA"
+      cyan: "#7fdbca"
+      white: "#ffffff"
+
+colors: *night-owl
