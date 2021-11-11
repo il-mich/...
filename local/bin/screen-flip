@@ -1,0 +1,11 @@
+#! /bin/bash
+
+if gnome-randr --current | grep -q "rotation: normal"
+then
+	echo "Portrait right"
+	gnome-randr --output HDMI-2 --rotate left > /dev/null
+else
+	echo "Landscape"
+	gnome-randr --output HDMI-2 --rotate normal > /dev/null
+fi
+
