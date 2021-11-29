@@ -72,11 +72,6 @@ mouse:
   hide_when_typing: true
 
 
-colors:
-  primary:
-    background: '0x000000'
-    foreground: '0xFFFFFF'
-
 schemes:
   night-owl: &night-owl
     primary:
