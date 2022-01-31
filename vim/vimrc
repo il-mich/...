@@ -7,6 +7,9 @@ syntax on
 " Mouse control
 set mouse=a
 
+" Clipboard
+set clipboard+=unnamedplus
+
 " Highlight search results
 set hlsearch
 nnoremap <esc><esc> :silent! nohls<cr>
