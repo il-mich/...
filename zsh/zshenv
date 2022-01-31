@@ -52,13 +52,19 @@ do
 	fi
 done
 
-# Add stuff to PATH
+# Add rust cargo to PATH
+if [[ -e $HOME/.cargo/bin ]]
+then
+	export PATH=$HOME/.cargo/bin:$PATH
+fi
+
+# Add my programs and pip's to PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # Add nix packages
-if [ -e /home/mich/.nix-profile/etc/profile.d/nix.sh ]
+if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]]
 then
-	. /home/mich/.nix-profile/etc/profile.d/nix.sh
+	. $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
 # Add parser combinators to Scala
