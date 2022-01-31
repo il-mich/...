@@ -61,3 +61,6 @@ then
 	. /home/mich/.nix-profile/etc/profile.d/nix.sh
 fi
 
+# Add parser combinators to Scala
+export SCALACLASSPATH=$HOME/.local/lib/scala-parser-combinators_2.13-2.1.0+29-f2f0b4f8-SNAPSHOT.jar
+

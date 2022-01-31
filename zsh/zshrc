@@ -125,6 +125,10 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # Fast af venv
 alias vnv='source .venv/bin/activate'
 
+# Scala with parser combinators
+alias scala='scala -cp .:$SCALACLASSPATH'
+alias scalac='scalac -cp .:$SCALACLASSPATH'
+
 #
 ## Keymaps
 #
@@ -135,7 +139,9 @@ bindkey '^[[1;5C' forward-word
 
 # Up and down for substring search of history
 bindkey '^[[A' history-substring-search-up
+bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 
 #
