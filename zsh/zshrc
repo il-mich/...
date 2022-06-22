@@ -36,8 +36,9 @@
 
 # Dynamic window title
 case $TERM in
-	xterm*|rxvt*|Eterm|alacritty|aterm|kterm|gnome*)
-		precmd() {print -Pn "\e]0;%~\a"}
+	(xterm*|rxvt*|Eterm|alacritty|aterm|kterm|gnome*|screen*|tmux*)
+		precmd ()  { print -Pn "\e]2;%~\a" }
+		preexec () { print -Pn "\e]2;$(echo $1 | egrep -o '^[^ ]+' )\a" }
 		;;
 esac
 

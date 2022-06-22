@@ -40,7 +40,7 @@ SAVEHIST=2000
 export EDITOR=nvim
 
 # Find gui
-programs=("neovide" "gnvim" "goneovim" "kitty nvim" "alacritty -e nvim")
+programs=("neovide" "nvim-qt" "gnvim" "goneovim" "kitty nvim" "alacritty -e nvim")
 
 for candidate in "${programs[@]}"
 do
