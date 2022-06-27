@@ -70,3 +70,7 @@ shell:
 
 mouse:
   hide_when_typing: true
+
+import:
+  - ~/.config/alacritty/platform-specific.yml
+  - ~/.cache/wal/colors-alacritty.yml
