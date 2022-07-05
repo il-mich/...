@@ -22,8 +22,8 @@ done
 export PATH=$HOME/.local/bin:$PATH
 
 # Add nix packages
-if [ -e /home/mich/.nix-profile/etc/profile.d/nix.sh ]
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]
 then
-	. /home/mich/.nix-profile/etc/profile.d/nix.sh
+	. $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
