@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-## il-mich zsh config
+## le-mich config for zsh
 #
 #
 #                `........`
@@ -108,10 +108,15 @@ alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 # ls aliases
-alias ls='ls --color=auto'
-alias ll='ls -alh --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CFh --color=auto'
+if command -v lsd &> /dev/null
+then
+	pizazz="d"
+fi
+
+alias ls='ls$pizazz --color=auto'
+alias ll='ls$pizazz -alh --color=auto'
+alias la='ls$pizazz -A --color=auto'
+alias l='ls$pizazz -CFh --color=auto'
 
 # Colored output
 alias dir='dir --color=auto'
