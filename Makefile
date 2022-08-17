@@ -1,11 +1,12 @@
-.DEFAULT_GOAL := full
-
 SHELL := /bin/bash
 
-PACKAGES := alacritty background bash cowm fonts gnome kitty nvim-gui vim zathura zsh
+define link =
+	mkdir -p $(1)
+	ln --suffix=.bak -sfb $(CURDIR)/$(2) $(1)/$(3)$(2)
+endef
 
-include $(patsubst %,%/Makefile,$(PACKAGES))
-
-full: $(patsubst %,%_full,$(PACKAGES))
-
-full_uninstall: $(patsubst %,%_full_uninstall,$(PACKAGES))
+define unlink =
+	rm $(1)/$(3)$(2)
+	-mv $(1)/$(3)$(2).bak $(1)/$(3)$(2)
+	-rmdir $(1)
+endef

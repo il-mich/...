@@ -1,19 +1,9 @@
-SHELL := /bin/bash
+include ../Makefile
 
 BIN := $(HOME)/.local/bin
 
+install:
+	$(call link,$(BIN),cowm-helper)
 
-cowm_full: cowm
-cowm_full_uninstall: cowm_uninstall
-
-
-cowm: .$(BIN)/cowm-helper
-
-.$(BIN)/cowm-helper:
-	mkdir -p $(BIN)
-	ln -sf $(BAK) $(patsubst %/cowm,%,$(CURDIR))/cowm/cowm-helper $(BIN)
-
-cowm_uninstall:
-	rm $(BIN)/cowm-helper
-	-mv $(BIN)/cowm-helper.bak $(BIN)/cowm-helper
-	-rmdir $(BIN)
+uninstall:
+	$(call unlink,$(BIN),cowm-helper)

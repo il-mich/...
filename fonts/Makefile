@@ -1,19 +1,9 @@
-SHELL := /bin/bash
+include ../Makefile
 
-FONTS := $(HOME)/.config/fontconfig
+CONF := $(XDG_CONFIG_HOME)/fontconfig
 
+install:
+	$(call link,$(CONF),fonts.conf)
 
-fonts_full: fonts
-fonts_full_uninstall: fonts_uninstall
-
-
-fonts: .$(FONTS)/fonts.conf
-
-.$(FONTS)/fonts.conf:
-	mkdir -p $(FONTS)
-	ln -sf $(BAK) $(patsubst %/fonts,%,$(CURDIR))/fonts/fonts.conf $(FONTS)
-
-fonts_uninstall:
-	rm $(FONTS)/fonts.conf
-	-mv $(FONTS)/fonts.conf.bak $(FONTS)/fonts.conf
-	-rmdir $(FONTS)
+uninstall:
+	$(call unlink,$(CONF),fonts.conf)

@@ -1,19 +1,9 @@
-SHELL := /bin/bash
+include ../Makefile
 
-ZATHURA = $(HOME)/.config/zathura
+CONF  := $(XDG_CONFIG_HOME)/zathura
 
+install:
+	$(call link,$(CONF),zathurarc)
 
-zathura_full: zathura
-zathura_full_uninstall: zathura_uninstall
-
-
-zathura: .$(ZATHURA)/zathurarc
-
-.$(ZATHURA)/zathurarc:
-	mkdir -p $(ZATHURA)
-	ln -sf $(BAK) $(patsubst %/zathura,%,$(CURDIR))/zathura/zathurarc $(ZATHURA)
-
-zathura_uninstall:
-	rm $(ZATHURA)/zathurarc
-	-mv $(ZATHURA)/zathurarc.bak $(ZATHURA)/zathurarc
-	-rmdir $(ZATHURA)
+uninstall:
+	$(call unlink,$(CONF),zathurarc)

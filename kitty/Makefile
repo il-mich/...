@@ -1,19 +1,9 @@
-SHELL := /bin/bash
+include ../Makefile
 
-KITTY := $(HOME)/.config/kitty
+CONF := $(XDG_CONFIG_HOME)/kitty
 
+install:
+	$(call link,$(CONF),kitty.conf)
 
-kitty_full: kitty
-kitty_full_uninstall: kitty_uninstall
-
-
-kitty: .$(KITTY)/kitty.conf
-
-.$(KITTY)/kitty.conf:
-	mkdir -p $(KITTY)
-	ln -sf $(BAK) $(patsubst %/kitty,%,$(CURDIR))/kitty/kitty.conf $(KITTY)
-
-kitty_uninstall:
-	rm $(KITTY)/kitty.conf
-	-mv $(KITTY)/kitty.conf.bak $(KITTY)/kitty.conf
-	-rmdir $(KITTY)
+uninstall:
+	$(call unlink,$(CONF),kitty.conf)
