@@ -1,0 +1,30 @@
+configuration {
+  font:                   "le-mich-mono 12";
+  show-icons:             true;
+  combi-hide-mode-prefix: true;
+  window-thumbnail:       true;
+
+  modi:         "combi,run,filebrowser,nvim:nvim-session-select,ssh,power:rofi-power-menu";
+  combi-modi:   "window,drun";
+  sidebar-mode: true;
+
+  kb-move-char-back:    "Shift+Left,Control+b";
+  kb-move-char-forward: "Shift+Right,Control+f";
+  kb-mode-next:         "Right,Control+Tab";
+  kb-mode-previous:     "Left,Control+ISO_Left_Tab";
+  kb-page-prev:         "Page_Up,Alt+Up";
+  kb-page-next:         "Page_Down,Alt+Down";
+
+  timeout {
+    action: "kb-cancel";
+    delay:  0;
+  }
+  filebrowser {
+    directories-first:  true;
+    sorting-method:     "name";
+  }
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+@theme "~/.cache/wal/colors-rofi-dark"
