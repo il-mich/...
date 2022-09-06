@@ -1,4 +1,7 @@
-wall="/home/mich/Pictures/Sfondi/random.jpg"
+#!/usr/bin/env bash
 
-wget -O $wall https://source.unsplash.com/random/1366x768
-feh --bg-fill $wall
+wall="$HOME/Pictures/Wallpapers/random.jpg"
+size="$(xrandr --query | grep " connected" | head -1 | cut -d " " -f 3 | cut -d "+" -f 1)"
+
+wget -O $wall https://source.unsplash.com/random/$size
+wal --backend colorz --saturate 0.7 -i $wall -o update-colors.sh

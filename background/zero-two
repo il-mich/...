@@ -1,8 +1,8 @@
-#! /bin/zsh
+#!/usr/bin/env bash
 
-STR="/home/mich/Pictures/Sfondi/Darling/"
-R=$((($RANDOM)%(31)))
-PIC=$(($((27))+$R))
+folder="$HOME/Pictures/Wallpapers/Darling/"
+rand=$((($RANDOM)%(31)))
+image=$(($((27))+$rand))
 
-STR="${STR}$((PIC))"
-feh --bg-fill $STR*
+wall="${folder}$((image))"
+wal --backend colorz --saturate 0.7 -i $wall -o update-colors.sh
