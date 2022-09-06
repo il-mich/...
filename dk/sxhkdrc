@@ -2,7 +2,7 @@
 #########################################################
 
 # launcher
-super + p
+super + space
 	rofi -show combi
 
 # terminal
