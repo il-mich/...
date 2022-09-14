@@ -8,3 +8,6 @@ fi
 
 # change firefox colours
 pywalfox update
+
+# change telegram desktop colours
+wal-telegram -gr
