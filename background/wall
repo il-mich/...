@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+wall="$HOME/Pictures/Wallpapers/random.jpg"
+
+wget -O $wall https://minimalistic-wallpaper.herokuapp.com/?random
+wal --backend colorz --saturate 0.7 -i $wall -o update-colors.sh
