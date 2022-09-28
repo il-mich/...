@@ -127,7 +127,7 @@ wal -R
 update-colors.sh
 
 # set screen layout
-autorandr
+autorandr --change
 
 # start status bar
 polybar main > /tmp/polybar-main.log 2>&1 & disown
