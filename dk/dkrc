@@ -120,14 +120,14 @@ picom -b
 # hide cursor
 unclutter & disown
 
+# set screen layout
+autorandr --change
+
 # reload theme
 wal -R
 
 # load colors
 update-colors.sh
-
-# set screen layout
-autorandr --change
 
 # start status bar
 polybar main > /tmp/polybar-main.log 2>&1 & disown
