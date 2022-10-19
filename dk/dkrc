@@ -111,6 +111,9 @@ fi
 
 # start other essential things for the "desktop" experience
 
+# ssh agent
+eval "$(ssh-agent -s)"
+
 # set eurkey keymap
 setxkbmap eu
 
