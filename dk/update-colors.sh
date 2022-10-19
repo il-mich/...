@@ -10,4 +10,4 @@ fi
 pywalfox update
 
 # change telegram desktop colours
-wal-telegram -gr
+wal-telegram -r
