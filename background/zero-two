@@ -5,4 +5,4 @@ rand=$((($RANDOM)%(31)))
 image=$(($((27))+$rand))
 
 wall="${folder}$((image))"
-wal --backend colorz --saturate 0.7 -i $wall -o update-colors.sh
+wal --backend colorz --saturate 0.7 -i $wall --cols16 -o update-colors.sh
