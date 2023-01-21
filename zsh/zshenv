@@ -59,7 +59,10 @@ then
 fi
 
 # Add my programs and pip's to PATH
-export PATH=$HOME/.local/bin:$PATH
+if [[ -e $HOME/.local/bin ]]
+then
+	export PATH=$HOME/.local/bin:$PATH
+fi
 
 # Add nix packages
 if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]]
@@ -68,5 +71,8 @@ then
 fi
 
 # Add parser combinators to Scala
-export SCALACLASSPATH=$HOME/.local/lib/scala-parser-combinators_2.13-2.1.0+29-f2f0b4f8-SNAPSHOT.jar
+if [[ -e "$HOME/.local/lib/scala-parser-combinators_*" ]]
+then
+	export SCALACLASSPATH=$HOME/.local/lib/scala-parser-combinators_2.13-2.1.0+29-f2f0b4f8-SNAPSHOT.jar
+fi
 
