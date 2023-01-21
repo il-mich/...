@@ -109,6 +109,9 @@ if grep -q 'error:' "$logfile"; then
 	exit 1
 fi
 
+# non reparenting Java is needed to make DK work
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # start other essential things for the "desktop" experience
 
 # ssh agent
