@@ -177,7 +177,13 @@ setopt HIST_IGNORE_SPACE
 ## Prompt
 #
 
-PROMPT='%2~ %F{red}%(#.#.>)%f '
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]
+then
+	PROMPT='%m: %2~ %F{red}%(#.#.>)%f '
+else
+	PROMPT='%2~ %F{red}%(#.#.>)%f '	
+fi
+
 RPROMPT='%(?.◕‿◕.%F{red}ಠ_ಠ)%f' # expanded dynamically
 
 
@@ -187,14 +193,14 @@ RPROMPT='%(?.◕‿◕.%F{red}ಠ_ಠ)%f' # expanded dynamically
 
 # xdg-open with disown
 open() {
-    for i; do
-        if [[ ! -r $i ]]; then
-            echo "$0: file doesn't exist: \`$i'" >&2
-            continue
-        fi
-        xdg-open "$i" >/dev/null 2>&1 &
-        disown
-    done
+	for i; do
+		if [[ ! -r $i ]]; then
+			echo "$0: file doesn't exist: '$i'" >&2
+			continue
+		fi
+		xdg-open "$i" >/dev/null 2>&1 &
+		disown
+	done
 }
 
 if [[ ! -f ~/.config/zpm/zpm.zsh ]]
