@@ -73,4 +73,4 @@ mouse:
 
 import:
   - ~/.config/alacritty/platform-specific.yml
-  - ~/.cache/wal/colors-alacritty.yml
+  - ~/.config/alacritty/colors-alacritty.yml
