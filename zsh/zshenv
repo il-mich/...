@@ -6,6 +6,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
+
+
 
 #
 ## Style variables
@@ -16,6 +19,11 @@ then
 	export QT_QPA_PLATFORMTHEME=gtk3
 	export WINIT_UNIX_BACKEND=x11
 	export TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY=1
+fi
+
+if [[ $XDG_SESSION_TYPE == "wayland" ]]
+then
+	export MOZ_ENABLE_WAYLAND=1
 fi
 
 
