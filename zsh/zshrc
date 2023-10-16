@@ -135,6 +135,11 @@ alias vnv='source .venv/bin/activate'
 alias scala='scala -cp .:$SCALACLASSPATH'
 alias scalac='scalac -cp .:$SCALACLASSPATH'
 
+# nchat with multiple profiles
+alias chatw='nchat --confdir ~/.config/nchat/whatsapp'
+alias chatt='nchat --confdir ~/.config/nchat/telegram'
+
+
 #
 ## Keymaps
 #

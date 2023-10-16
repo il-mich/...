@@ -79,8 +79,7 @@ then
 fi
 
 # Add parser combinators to Scala
-if [[ -e "$HOME/.local/lib/scala-parser-combinators_*" ]]
+if [[ -e "$HOME/.local/lib/scala-parser-combinators.jar" ]]
 then
-	export SCALACLASSPATH=$HOME/.local/lib/scala-parser-combinators_2.13-2.1.0+29-f2f0b4f8-SNAPSHOT.jar
+	export SCALACLASSPATH=$HOME/.local/lib/scala-parser-combinators.jar
 fi
-
